@@ -20,20 +20,19 @@ function App() {
           placeholder="Aramak istediğiniz başlığı yazın..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ width: "300px", padding: "5px", marginBottom: "20px" }}
+          className="search-input"
         />
 
         {/* Filtrelenmiş script listesi */}
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul className="script-list">
           {scripts
             .filter(script =>
               script.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
               script.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
             )
             .map((script, index) => (
-              <li key={index} style={{ marginBottom: "10px", textAlign: "left" }}>
+              <li key={index}>
                 <strong
-                  style={{ fontSize: "18px", cursor: "pointer" }}
                   onClick={() => {
                     setOpenIndex(openIndex === index ? null : index);
                     setOpenChildIndex(null); // Yeni başlık açıldığında alt başlık kapansın
@@ -45,22 +44,19 @@ function App() {
                 {/* Sadece tıklanan başlık açılır */}
                 {openIndex === index && (
                   <>
-                    <p style={{ margin: "5px 0" }}>{script.content}</p>
+                    <p>{script.content}</p>
 
                     {/* Alt başlıklar varsa */}
                     {script.children && (
-                      <ul style={{ listStyle: "none", paddingLeft: "15px" }}>
+                      <ul>
                         {script.children.map((child, cIndex) => (
-                          <li key={cIndex} style={{ marginBottom: "5px" }}>
+                          <li key={cIndex}>
                             <strong
-                              style={{ cursor: "pointer", fontSize: "16px" }}
                               onClick={() => setOpenChildIndex(openChildIndex === cIndex ? null : cIndex)}
                             >
                               {child.title}
                             </strong>
-                            {openChildIndex === cIndex && (
-                              <p style={{ margin: "3px 0 3px 10px" }}>{child.content}</p>
-                            )}
+                            {openChildIndex === cIndex && <p>{child.content}</p>}
                           </li>
                         ))}
                       </ul>

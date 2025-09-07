@@ -6,20 +6,22 @@
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
+  color: #fff;
   padding-top: 30px;
+  width: 100%;
 }
 
 /* Logo boyutu ve konum */
 .App-logo {
-  height: 200px;       /* Logo yüksekliği */
-  width: auto;         /* Orantıyı korur */
-  margin-bottom: 40px; /* Logo ile altındaki içerik arası boşluk */
+  height: 200px;
+  width: auto;
+  margin-bottom: 40px;
 }
 
-input {
-  width: 90%;           /* Site boyuna göre genişledi */
-  max-width: 800px;     /* Çok büyük ekranlarda sınır */
+/* Arama kutusu tam genişlik */
+.search-input {
+  width: 90%;
+  max-width: 1200px;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -27,16 +29,15 @@ input {
   font-size: 16px;
 }
 
-/* Listeyi 3 sütun yapmak için grid kullandık */
-ul {
-  list-style: none;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
+/* Liste container */
+.script-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  text-align: left;
+  width: 90%;
+  max-width: 1200px;
+  padding: 0;
+  list-style: none;
 }
 
 li {
@@ -64,7 +65,7 @@ li strong:hover {
 
 li p {
   margin-top: 5px;
-  margin-left: 10px; /* Alt başlık için biraz içeride */
+  margin-left: 10px;
   background-color: #3b3f47;
   padding: 5px 10px;
   border-radius: 5px;
