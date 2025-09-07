@@ -10,7 +10,7 @@ function App() {
   const [password, setPassword] = useState(""); // inputtaki şifre
   const [authenticated, setAuthenticated] = useState(false); // doğru şifre girildi mi?
 
-  const correctPassword = "Concentrix2025!"; // Buraya istediğin şifreyi yaz
+  const correctPassword = "19030504"; // Buraya istediğin şifreyi yaz
 
   const handleLogin = () => {
     if (password === correctPassword) {
